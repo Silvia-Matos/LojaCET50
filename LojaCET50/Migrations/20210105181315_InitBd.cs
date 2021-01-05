@@ -9,6 +9,24 @@ namespace LojaCET50.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: false),
+                    Apelido = table.Column<string>(nullable: false),
+                    DataNascimento = table.Column<DateTime>(nullable: false),
+                    Morada = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Telefone = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Produtos",
                 columns: table => new
                 {
@@ -30,6 +48,9 @@ namespace LojaCET50.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Clientes");
+
             migrationBuilder.DropTable(
                 name: "Produtos");
         }

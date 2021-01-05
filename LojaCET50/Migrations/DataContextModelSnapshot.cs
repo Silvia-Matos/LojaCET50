@@ -19,6 +19,29 @@ namespace LojaCET50.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LojaCET50.Dados.Entidades.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Apelido");
+
+                    b.Property<DateTime>("DataNascimento");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Morada");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Telefone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clientes");
+                });
+
             modelBuilder.Entity("LojaCET50.Dados.Entidades.Produto", b =>
                 {
                     b.Property<int>("Id")

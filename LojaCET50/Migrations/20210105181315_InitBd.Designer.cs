@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaCET50.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201217180611_InitBd")]
+    [Migration("20210105181315_InitBd")]
     partial class InitBd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,29 @@ namespace LojaCET50.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("LojaCET50.Dados.Entidades.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Apelido");
+
+                    b.Property<DateTime>("DataNascimento");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Morada");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Telefone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clientes");
+                });
 
             modelBuilder.Entity("LojaCET50.Dados.Entidades.Produto", b =>
                 {
